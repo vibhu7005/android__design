@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class CountriesViewModel : ViewModel() {
     private val countriesLiveData = MutableLiveData<List<Country>>()
-    private val dataLoadingFailure = MutableLiveData<Boolean>(false)
+    private val dataLoadingFailure = MutableLiveData(false)
 
     fun fetchCountriesDataFromRepo() {
         viewModelScope.launch(Dispatchers.IO) {

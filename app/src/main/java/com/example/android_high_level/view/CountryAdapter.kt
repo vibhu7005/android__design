@@ -1,5 +1,6 @@
 package com.example.android_high_level.view
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,7 @@ import com.example.android_high_level.model.Country
 
 class CountryAdapter(private var countryList: MutableList<Country>) : RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val viewBinding: ItemCountryBinding) :
+    inner class ViewHolder(private val viewBinding: ItemCountryBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
         fun bind(country: Country) {
             viewBinding.name.text = country.countryName
@@ -32,6 +33,7 @@ class CountryAdapter(private var countryList: MutableList<Country>) : RecyclerVi
         holder.bind(countryList[position])
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun modifyList(countryList : MutableList<Country>) {
         this@CountryAdapter.countryList = countryList
         notifyDataSetChanged()

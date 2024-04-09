@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         observeLiveData()
     }
 
-    fun observeLiveData() {
+    private fun observeLiveData() {
         countriesViewModel.getCountriesLiveData().observe(this) {
             countriesAdapter.modifyList(it as MutableList<Country>)
         }
